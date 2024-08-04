@@ -27,8 +27,10 @@ const handleGoogleClick = async () => {
                 photo: result.user.photoURL
             })
         })
+        
         const data = await res.json()
-        dispatch(signInSuccess(data))
+        
+        dispatch(signInSuccess(data));
         navigate('/')
      } catch (error) {
         console.log('could not sign in with google', error)
