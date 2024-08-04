@@ -1,11 +1,13 @@
 import express from 'express'
-import mongoose from 'mongoose'
 const app = express();
+import mongoose from 'mongoose'
 app.use(express.json());
 import dotenv from 'dotenv';
+dotenv.config();
 import userRouter from './routes/user-route.js'
 import authRouter from './routes/auth-route.js'
-dotenv.config();
+import cookieParser from 'cookie-parser'
+app.use(cookieParser());
 
 
 
@@ -14,6 +16,8 @@ const Port = process.env.PORT || 3000
 mongoose.connect(process.env.MONGODB_URL)
 .then(() => console.log('Connected to MongoDB'))
 .catch((error) => console.error('Failed to connect to MongoDB', error));
+
+
 
 
 
