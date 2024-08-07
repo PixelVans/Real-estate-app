@@ -152,7 +152,7 @@ export default function createListing() {
                 setError(data.message); 
              }
         
-           navigate(`/listing/${data._id}`)
+           navigate(`/listings/${data._id}`)
 
 
         } catch (error) {
