@@ -24,6 +24,9 @@ export default function Profile() {
   const [formData, setFormData] = useState({})
   const [filePercentage, setfilePercentage] = useState(0)
   const [updateSuccess, setUpdateSuccess] = useState(false)
+  const [showListingsError,setShowListingsError] = useState(false)
+  const [userListings,setUserListings] = useState([])
+
   const dispatch = useDispatch(); // Move this inside the component
  
 
@@ -149,7 +152,24 @@ export default function Profile() {
   }
 
 
-
+  //HANDLE SHOW LISTINGS
+  
+  const handleShowListings = async () => {
+    try {
+      setShowListingsError(false)
+      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const data = await res.json();
+      
+      if (data.success === false) {
+        setShowListingsError(true)
+    
+        return
+       
+      }  setUserListings(data)
+    } catch (error) {
+      setShowListingsError(true)
+    }
+  }
 
 
 
@@ -233,6 +253,37 @@ export default function Profile() {
         
         </p>
       </div>
+      <button onClick={handleShowListings}
+        className='text-green-700 w-full'>Show Listings</button>
+      <p className='text-red-700'>{ showListingsError ? 'Error showing Listings' : ''}</p>
+    
+      {userListings && 
+        userListings.length > 0 && 
+        <div className='flex flex-col gap-4'>
+          <h1 className='text-center mt-7 text-2xl font-semibold'>Your Listings</h1>
+               { userListings.map((listing) =>
+          <div key={listing._id} className=' border rounded-lg p-3 
+          flex justify-between items-center gap-4'>
+            <Link to={`listings/${listing._id}`}>
+              <img
+                className='h-16 w-16 object-contain'
+                src={listing.imageUrls[0]}
+                alt="Listing image" />
+            </Link >
+            <Link className='flex-1' to={`listings/${listing._id}`}>
+              <p className='text-slate-700 font-semibold 
+            flex-1 hover:underline truncate'>{listing.name}</p>
+            </Link>
+            <div className='flex flex-col'>
+              <button className='text-red-700 uppercase'>Delete</button>
+              <button className='text-green-700 uppercase'>Edit</button>
+        </div>
+
+</div>)}
+        </div>
+  }
+
+
     </div>
   )
 }
