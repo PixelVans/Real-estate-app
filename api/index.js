@@ -10,7 +10,7 @@ import cookieParser from 'cookie-parser'
 import listingRouter from './routes/listing-route.js'
 app.use(cookieParser());
 
-
+import path from 'path'
 
 
 const Port = process.env.PORT || 3000
@@ -18,6 +18,7 @@ mongoose.connect(process.env.MONGODB_URL)
 .then(() => console.log('Connected to MongoDB'))
 .catch((error) => console.error('Failed to connect to MongoDB', error));
 
+const __dirname = path.resolve()
 
 
 
@@ -26,7 +27,11 @@ app.use("/api/user", userRouter)
 app.use("/api/auth", authRouter)
 app.use("/api/listing", listingRouter)
 
+app.use(express.static(path.join(__dirname, '/client/dist')));
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname,'client','dist','index.html'))
+})
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
