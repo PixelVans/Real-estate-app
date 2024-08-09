@@ -41,7 +41,7 @@ export default function Home() {
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {
-        log(error);
+       
       }
     };
     fetchOfferListings();
@@ -50,7 +50,7 @@ export default function Home() {
     <div>
       {/* top */}
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
-        <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
+        <h1 className='text-slate-700 font-bold sm:text-3xl text-[25px] lg:text-6xl'>
         Simplifying Your Search  <br/>for the 
           <br />
           <span className='text-slate-800'>  Perfect Home</span>
@@ -80,7 +80,7 @@ export default function Home() {
                   background: `url(${listing.imageUrls[0]}) center no-repeat`,
                   backgroundSize: 'cover',
                 }}
-                className='h-[550px] w-[1300px] mx-auto rounded-lg'
+                className=' h-[150px] w-[280px]  sm:h-[550px] sm:w-[1300px] mx-auto rounded-lg'
                 key={listing._id}
               ></div>
             </SwiperSlide>
