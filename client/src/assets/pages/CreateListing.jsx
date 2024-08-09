@@ -150,12 +150,9 @@ export default function createListing() {
             setLoading(false)
             if (data.success === false) {
                 setError(data.message); 
-             }else {
-                // Navigate to search page after successful submission
-                navigate('/search'); // Adjust the URL as needed
-            }
+             }
         
-           navigate(`/listings/${data._id}`)
+           navigate(`/listing/${data._id}`)
 
 
         } catch (error) {
