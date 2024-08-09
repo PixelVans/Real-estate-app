@@ -48,7 +48,7 @@ export default function Header() {
           max-w-6xl mx-auto p-3'>
         <Link to='/'>
               <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
-         <span className='text-slate-500'>PixelVans</span> 
+         <span className='text-slate-500'>Vans</span> 
          <span className='text-slate-700'>Estate</span>
         </h1> 
         </Link>
