@@ -66,6 +66,11 @@ const listingSchema  = new mongoose.Schema({
         required: true
       
     },
+    sports: {
+        type: Boolean,
+        
+      
+    },
 }, { timestamps: true })
 
 

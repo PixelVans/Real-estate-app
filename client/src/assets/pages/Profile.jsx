@@ -22,6 +22,7 @@ export default function Profile() {
   const [file, setFile] = useState(undefined)
   const [fileUploadError, setFileUploadError] = useState(false)
   const [formData, setFormData] = useState({})
+ 
   const [filePercentage, setfilePercentage] = useState(0)
   const [updateSuccess, setUpdateSuccess] = useState(false)
   const [showListingsError,setShowListingsError] = useState(false)

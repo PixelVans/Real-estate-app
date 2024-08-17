@@ -28,6 +28,7 @@ export default function UpdateListing() {
     const [uploading, setUploading] = useState(false)
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
+   
     useEffect(() => {
         const fetchListing = async () => {
             const listingId = params.listingId;
