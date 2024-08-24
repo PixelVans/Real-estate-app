@@ -49,7 +49,7 @@ export default function Header() {
           <h1 className='font-bold text-xl sm:text-2xl flex flex-wrap '>
             <span className='text-slate-500'>Vans</span>
             <span className='text-slate-700'>Estate</span>
-            <img className=' w-12 sm:w-[65px] mt-[-7px] sm:mt-[-15px]'  src="../public/images/logohse.png" alt="" />
+            <img className=' w-12 sm:w-[65px] mt-[-7px] sm:mt-[-15px]'  src="/images/logohse.png" alt="logo" />
           </h1>
         </Link>
 
