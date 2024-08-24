@@ -27,7 +27,7 @@ export default function Header() {
 
   return (
     <header className='bg-slate-200 shadow-md pb-1 sm:pb-0 relative'>
-      <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
+      <div className='flex justify-between items-center max-w-6xl sm:max-w-7xl mx-auto p-3'>
        
         {/* Toggle Button */}
         <div className='relative mx-2 z-20 block sm:hidden'>
@@ -46,9 +46,10 @@ export default function Header() {
         </div>
 
         <Link to='/'>
-          <h1 className='font-bold text-xl sm:text-2xl flex flex-wrap'>
+          <h1 className='font-bold text-xl sm:text-2xl flex flex-wrap '>
             <span className='text-slate-500'>Vans</span>
             <span className='text-slate-700'>Estate</span>
+            <img className=' w-12 sm:w-[65px] mt-[-7px] sm:mt-[-15px]'  src="../public/images/logohse.png" alt="" />
           </h1>
         </Link>
 
