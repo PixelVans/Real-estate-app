@@ -70,7 +70,7 @@ export default function Home() {
       </div>
 
       {/* swiper */}
-      <Swiper navigation className='z-10'>
+      <Swiper navigation >
         {offerListings &&
           offerListings.length > 0 &&
           offerListings.map((listing) => (
