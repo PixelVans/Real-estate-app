@@ -18,11 +18,11 @@ export default function Profile() {
 
   const fileRef = useRef(null)
 
-  const { currentUser,loading,error } = useSelector(state => state.user)
+  const { currentUser,error } = useSelector(state => state.user)
   const [file, setFile] = useState(undefined)
   const [fileUploadError, setFileUploadError] = useState(false)
   const [formData, setFormData] = useState({})
- 
+ const [loading,setLoading] = useState(false)
   const [filePercentage, setfilePercentage] = useState(0)
   const [updateSuccess, setUpdateSuccess] = useState(false)
   const [showListingsError,setShowListingsError] = useState(false)
@@ -82,6 +82,7 @@ export default function Profile() {
     e.preventDefault();
 
     try {
+      setLoading(true)
       dispatch(updateUserStart());
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: 'POST',
@@ -94,14 +95,17 @@ export default function Profile() {
 
       if (data.success === false) {
         dispatch(updateUserFailure(data.message))
+        setLoading(false)
         return;
       }
 
       dispatch(updateUserSuccess(data))
       setUpdateSuccess(true)
+      setLoading(false)
     
     } catch (error) {
       dispatch(updateUserFailure(error.message))
+      setLoading(false)
     }
 }
 
@@ -255,7 +259,7 @@ export default function Profile() {
         
 
         <button disabled={loading} className='bg-slate-700 text-white rounded-lg 
-        p-3 uppercase hover:opacity-85'>{ loading? 'Loading...' : 'Update'}</button>
+        p-3 uppercase hover:opacity-85'>{ loading ? 'Loading...' : 'Update'}</button>
 
         <Link className='bg-green-700 text-white
         p-3 rounded-lg uppercase text-center hover:opacity-85' to={'/create-listing'}>

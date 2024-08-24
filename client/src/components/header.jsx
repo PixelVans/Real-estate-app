@@ -106,7 +106,8 @@ export default function Header() {
           {/* Add sidebar content here */}
           <h2 className='text-xl font-bold'>Menu</h2>
           {/* Example links */}
-          <p className='text-sm'>Nothing to show here yet</p>
+          <p className='text-sm'>Nothing to show here yet.</p>
+          <p className='text-sm'>Sign in to customize your profile</p>
           {/* Add more links or content as needed */}
         </div>
       </div>
