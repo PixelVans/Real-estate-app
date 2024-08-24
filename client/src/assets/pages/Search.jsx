@@ -18,7 +18,7 @@ export default function Search() {
   const [listings, setListings] = useState([]);
   const [showMore, setShowMore] = useState(false);
 
-  useEffect(() => {
+  useEffect  (  () => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');
     const typeFromUrl = urlParams.get('type');
@@ -65,6 +65,9 @@ export default function Search() {
 
     fetchListings();
   }, [location.search]);
+
+
+  
 
   const handleChange = (e) => {
     if (
@@ -142,7 +145,7 @@ export default function Search() {
               type='text'
               id='searchTerm'
               placeholder='Search...'
-              className='border rounded-lg p-3 w-full'
+              className='border rounded-lg p-2 sm:p-3 w-full'
               value={sidebardata.searchTerm}
               onChange={handleChange}
             />
@@ -219,7 +222,7 @@ export default function Search() {
               onChange={handleChange}
               defaultValue={'created_at_desc'}
               id='sort_order'
-              className='border rounded-lg p-3'
+              className='border rounded-lg p-1 sm:p-3'
             >
               <option value='regularPrice_desc'>Price high to low</option>
               <option value='regularPrice_asc'>Price low to high</option>
