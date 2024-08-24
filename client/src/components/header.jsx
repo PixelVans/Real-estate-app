@@ -46,7 +46,7 @@ export default function Header() {
         </div>
 
         <Link to='/'>
-          <h1 className='font-bold text-xl sm:text-2xl flex flex-wrap '>
+          <h1 className='font-bold text-xl sm:text-2xl flex flex-wrap ml-10 sm:ml-0 mb-[-5px]'>
             <span className='text-slate-500'>Vans</span>
             <span className='text-slate-700'>Estate</span>
             <img className=' w-12 sm:w-[65px] mt-[-7px] sm:mt-[-15px]'  src="/images/logohse.png" alt="logo" />
